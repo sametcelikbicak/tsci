@@ -1,13 +1,14 @@
 {
   "name": "tsci",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "TypeScript CLI for creating HTML & CSS & TypeScript project with different bundlers.",
   "main": "lib/cli.js",
   "types": "lib/cli.d.ts",
   "bin": {
-    "tsci": "lib/cli.js"
+    "tsci": "bin/tsci"
   },
   "scripts": {
+    "dev": "tsc",
     "build": "tsc",
     "prepare": "npm run build",
     "version": "git add -A src",
@@ -32,10 +33,17 @@
   },
   "homepage": "https://github.com/sametcelikbicak/tsci#readme",
   "devDependencies": {
+    "@types/inquirer": "^8.2.4",
     "@types/node": "^18.8.3",
+    "@types/shelljs": "^0.8.11",
+    "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "shelljs": "^0.8.5"
+  }
 }

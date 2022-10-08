@@ -4,5 +4,5 @@ TypeScript CLI for creating HTML & CSS & TypeScript project with different bundl
 
 ## Installation
 ``` shell
-npm i tsci
+npm i -g tsci
 ```
