@@ -1,34 +1,28 @@
-import inquirer from "inquirer";
+import inquirer, { Answers } from "inquirer";
 import shell from "shelljs";
+import { repoLinks, questions, Template } from "./utils";
 
 const path = process.cwd();
 
-inquirer
-  .prompt([
-    {
-      type: "list",
-      name: "template",
-      message: "Choose the TypeScript template:",
-      choices: ["TypeScript-Vite", "TypeScript-Parcel", "TypeScript-Snowpack"],
-    },
-  ])
-  .then((answers) => {
-    console.log(`🏗 ${answers.template} folder is creating...`);
-    shell.exec(`mkdir ${answers.template}`);
-    if (answers.template == "TypeScript-Vite") {
-      shell.exec(
-        `git clone https://github.com/sametcelikbicak/typescript-vite ${answers.template}`
-      );
-    } else if (answers.template == "TypeScript-Parcel") {
-      shell.exec(
-        `git clone https://github.com/sametcelikbicak/typescript-parcel ${answers.template}`
-      );
-    } else if (answers.template == "TypeScript-Snowpack") {
-      shell.exec(
-        `git clone https://github.com/sametcelikbicak/typescript-snowpack ${answers.template}`
-      );
-    }
-    shell.cd(`${path}/${answers.template}`);
-    shell.exec(`npm i`);
-    console.log("💻 Successfully installed all the required dependencies, ready to go.");
-  });
+inquirer.prompt(questions).then((answers: Answers) => {
+  console.log(`📂 ${answers.projectName} folder is creating...`);
+  shell.exec(`mkdir ${answers.projectName}`);
+  if (answers.template == Template.Vite) {
+    shell.exec(
+      `git clone ${repoLinks.get(Template.Vite)} ${answers.projectName}`
+    );
+  } else if (answers.template == Template.Parcel) {
+    shell.exec(
+      `git clone ${repoLinks.get(Template.Parcel)} ${answers.projectName}`
+    );
+  } else if (answers.template == Template.Snowpack) {
+    shell.exec(
+      `git clone ${repoLinks.get(Template.Snowpack)} ${answers.projectName}`
+    );
+  }
+  shell.cd(`${path}/${answers.projectName}`);
+  shell.exec(`npm install`);
+  console.log(
+    "💻 Successfully installed all the required dependencies, ready to go."
+  );
+});

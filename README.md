@@ -6,3 +6,6 @@ TypeScript CLI for creating HTML & CSS & TypeScript project with different bundl
 ``` shell
 npm i -g tsci
 ```
+
+## Usage
+![CLI](assets/cli.gif)

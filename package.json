@@ -1,6 +1,6 @@
 {
   "name": "tsci",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "TypeScript CLI for creating HTML & CSS & TypeScript project with different bundlers.",
   "main": "lib/cli.js",
   "types": "lib/cli.d.ts",
@@ -43,6 +43,7 @@
     "lib/**/*"
   ],
   "dependencies": {
+    "enum2array": "^2022.9.10",
     "inquirer": "^8.2.4",
     "shelljs": "^0.8.5"
   }
