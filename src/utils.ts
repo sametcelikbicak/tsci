@@ -1,7 +1,7 @@
 import { QuestionCollection } from "inquirer";
 import { enum2array } from "enum2array";
 
-export enum Template {
+export enum Bundler {
   "Vite" = "Vite",
   "Parcel" = "Parcel",
   "Snowpack" = "Snowpack",
@@ -15,14 +15,14 @@ export const questions: QuestionCollection = [
   },
   {
     type: "list",
-    name: "template",
+    name: "bundler",
     message: "Choose the TypeScript bundler template:",
-    choices: [...enum2array(Template)],
+    choices: [...enum2array(Bundler)],
   },
 ];
 
 export const repoLinks = new Map([
-  [Template.Vite, "https://github.com/sametcelikbicak/typescript-vite"],
-  [Template.Parcel, "https://github.com/sametcelikbicak/typescript-parcel"],
-  [Template.Snowpack, "https://github.com/sametcelikbicak/typescript-snowpack"],
+  [Bundler.Vite, "https://github.com/sametcelikbicak/typescript-vite"],
+  [Bundler.Parcel, "https://github.com/sametcelikbicak/typescript-parcel"],
+  [Bundler.Snowpack, "https://github.com/sametcelikbicak/typescript-snowpack"],
 ]);
