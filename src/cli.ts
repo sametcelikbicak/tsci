@@ -22,6 +22,10 @@ inquirer.prompt(questions).then((answers: Answers) => {
     shell.exec(
       `git clone ${repoLinks.get(Bundler.Snowpack)} ${answers.projectName}`
     );
+  } else if (answers.bundler == Bundler.Rollup) {
+    shell.exec(
+      `git clone ${repoLinks.get(Bundler.Rollup)} ${answers.projectName}`
+    );
   }
   
   shell.cd(`${path}/${answers.projectName}`);

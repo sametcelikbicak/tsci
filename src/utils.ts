@@ -5,6 +5,7 @@ export enum Bundler {
   "Vite" = "Vite",
   "Parcel" = "Parcel",
   "Snowpack" = "Snowpack",
+  "Rollup" = "Rollup",
 }
 
 export const questions: QuestionCollection = [
@@ -25,4 +26,5 @@ export const repoLinks = new Map([
   [Bundler.Vite, "https://github.com/sametcelikbicak/typescript-vite"],
   [Bundler.Parcel, "https://github.com/sametcelikbicak/typescript-parcel"],
   [Bundler.Snowpack, "https://github.com/sametcelikbicak/typescript-snowpack"],
+  [Bundler.Rollup, "https://github.com/sametcelikbicak/typescript-rollup"],
 ]);
