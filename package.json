@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/sametcelikbicak/tsci#readme",
   "devDependencies": {
-    "@types/inquirer": "^8.2.4",
+    "@types/inquirer": "^9.0.2",
     "@types/node": "^18.8.3",
     "@types/shelljs": "^0.8.11",
     "ts-node": "^10.9.1",
@@ -45,7 +45,7 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "enum2array": "^2022.9.10",
-    "inquirer": "^8.2.4",
+    "inquirer": "^9.1.4",
     "shelljs": "^0.8.5"
   }
 }
