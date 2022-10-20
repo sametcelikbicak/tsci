@@ -1,13 +1,13 @@
 import inquirer, { Answers } from "inquirer";
 import shell from "shelljs";
-import { repoLinks, questions, Bundler } from "./utils";
+import { repoLinks, questions, Bundler } from "./utils.js";
 import chalk from "chalk";
 
 const path = process.cwd();
 
 inquirer.prompt(questions).then((answers: Answers) => {
   console.log(chalk.blue(`📂 ${answers.projectName} folder is creating...`));
-  
+
   shell.exec(`mkdir ${answers.projectName}`);
 
   if (answers.bundler == Bundler.Vite) {
@@ -27,11 +27,13 @@ inquirer.prompt(questions).then((answers: Answers) => {
       `git clone ${repoLinks.get(Bundler.Rollup)} ${answers.projectName}`
     );
   }
-  
+
   shell.cd(`${path}/${answers.projectName}`);
   shell.exec(`npm install`);
-  
+
   console.log(
-    chalk.green("💻 Successfully installed all the required dependencies, ready to go.")
+    chalk.green(
+      "💻 Successfully installed all the required dependencies, ready to go."
+    )
   );
 });

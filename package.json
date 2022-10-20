@@ -2,11 +2,12 @@
   "name": "tsci",
   "version": "0.0.5",
   "description": "TypeScript CLI for creating HTML & CSS & TypeScript project with different bundlers.",
-  "main": "lib/cli.js",
-  "types": "lib/cli.d.ts",
+  "exports": "./lib/cli.js",
+  "types": "./lib/cli.d.ts",
   "bin": {
-    "tsci": "bin/tsci"
+    "tsci": "bin/tsci.js"
   },
+  "type": "module",
   "scripts": {
     "dev": "tsc",
     "build": "tsc",
@@ -38,6 +39,9 @@
     "@types/shelljs": "^0.8.11",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
+  },
+  "engines": {
+    "node": ">=14.16"
   },
   "files": [
     "lib/**/*"
