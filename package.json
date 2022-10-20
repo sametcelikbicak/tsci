@@ -43,7 +43,7 @@
     "lib/**/*"
   ],
   "dependencies": {
-    "chalk": "^4.1.2",
+    "chalk": "^5.1.2",
     "enum2array": "^2022.9.10",
     "inquirer": "^9.1.4",
     "shelljs": "^0.8.5"
