@@ -15,3 +15,7 @@ npm i -g tsci
 
 ## Usage
 ![CLI](assets/cli.gif)
+
+### Want to contribute?
+You can read and follow our [CONTRIBUTING.md](CONTRIBUTING.md) and report it using
+[GitHub Issues](https://github.com/sametcelikbicak/tsci/issues)! for reporting bugs, suggesting enhancements, bugfixes, new features and extras are welcome.
