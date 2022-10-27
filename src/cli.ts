@@ -10,7 +10,7 @@ import {
   projectNameQuestionAsync,
 } from "./questions/index.js";
 
-export async function tsciAsync(): Promise<any> {
+export async function tsciAsync(): Promise<void> {
   const projectNameAnswer = await projectNameQuestionAsync();
   const bundlerAnswer = await bundlerQuestionAsync();
 

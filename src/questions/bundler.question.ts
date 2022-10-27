@@ -9,7 +9,7 @@ export async function bundlerQuestionAsync(): Promise<Answer> {
     { name: Bundler.Rollup, value: Bundler.Rollup },
   ];
 
-  return await inquirer.prompt([
+  return await inquirer.prompt<Answer>([
     {
       name: "bundler",
       type: "list",

@@ -1,7 +1,6 @@
 export enum Bundler {
-    "Vite" = "Vite",
-    "Parcel" = "Parcel",
-    "Snowpack" = "Snowpack",
-    "Rollup" = "Rollup",
-  }
-  
+  "Vite" = "Vite",
+  "Parcel" = "Parcel",
+  "Snowpack" = "Snowpack",
+  "Rollup" = "Rollup",
+}
