@@ -11,6 +11,10 @@
   "scripts": {
     "dev": "tsc",
     "build": "tsc",
+    "lint": "eslint -c .eslintrc.json --ext .ts,.js ./",
+    "lint:fix": "eslint -c .eslintrc.json --ext .ts,.js ./ --fix",
+    "prettier": "prettier --write 'src/**/*.ts' '**/*.json'",
+    "format": "npm run prettier && npm run lint",
     "prepare": "npm run build",
     "version": "git add -A src",
     "postversion": "git push && git push --tags"
@@ -37,6 +41,14 @@
     "@types/inquirer": "^9.0.2",
     "@types/node": "^18.8.3",
     "@types/shelljs": "^0.8.11",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "eslint": "^8.26.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^2.7.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
   },
