@@ -6,6 +6,7 @@
 - Add CHANGELOG file
 - Refactor code base, 
 - Add prettier and eslint
+- Update README file
 
 ## v.2022.10.23
 - Fix dependabot issues
