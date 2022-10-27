@@ -4,7 +4,8 @@
 - Add CODE_OF_CONDUCT file
 - Add CONTRIBUTING file
 - Add CHANGELOG file
-- Refactor code base
+- Refactor code base, 
+- Add prettier and eslint
 
 ## v.2022.10.23
 - Fix dependabot issues
