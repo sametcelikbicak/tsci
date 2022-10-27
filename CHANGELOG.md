@@ -4,6 +4,7 @@
 - Add CODE_OF_CONDUCT file
 - Add CONTRIBUTING file
 - Add CHANGELOG file
+- Refactor code base
 
 ## v.2022.10.23
 - Fix dependabot issues

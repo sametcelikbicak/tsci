@@ -1,39 +1,38 @@
-import inquirer, { Answers } from "inquirer";
-import shell from "shelljs";
-import { repoLinks, questions, Bundler } from "./utils.js";
+import {
+  bundlers,
+  cloneRepository,
+  createFolder,
+  installDependencies,
+} from "./utils.js";
 import chalk from "chalk";
+import {
+  bundlerQuestionAsync,
+  projectNameQuestionAsync,
+} from "./questions/index.js";
 
-const path = process.cwd();
+export async function tsciAsync(): Promise<any> {
+  const projectNameAnswer = await projectNameQuestionAsync();
+  const bundlerAnswer = await bundlerQuestionAsync();
 
-inquirer.prompt(questions).then((answers: Answers) => {
-  console.log(chalk.blue(`📂 ${answers.projectName} folder is creating...`));
+  console.log(
+    chalk.blue(`📂 ${projectNameAnswer.projectName} folder is creating...`)
+  );
 
-  shell.exec(`mkdir ${answers.projectName}`);
+  createFolder(projectNameAnswer.projectName);
 
-  if (answers.bundler == Bundler.Vite) {
-    shell.exec(
-      `git clone ${repoLinks.get(Bundler.Vite)} ${answers.projectName}`
-    );
-  } else if (answers.bundler == Bundler.Parcel) {
-    shell.exec(
-      `git clone ${repoLinks.get(Bundler.Parcel)} ${answers.projectName}`
-    );
-  } else if (answers.bundler == Bundler.Snowpack) {
-    shell.exec(
-      `git clone ${repoLinks.get(Bundler.Snowpack)} ${answers.projectName}`
-    );
-  } else if (answers.bundler == Bundler.Rollup) {
-    shell.exec(
-      `git clone ${repoLinks.get(Bundler.Rollup)} ${answers.projectName}`
-    );
-  }
+  cloneRepository(
+    bundlers.get(bundlerAnswer.bundler),
+    projectNameAnswer.projectName
+  );
 
-  shell.cd(`${path}/${answers.projectName}`);
-  shell.exec(`npm install`);
+  const path = process.cwd();
+  installDependencies(`${path}/${projectNameAnswer.projectName}`);
 
   console.log(
     chalk.green(
       "💻 Successfully installed all the required dependencies, ready to go."
     )
   );
-});
+}
+
+await tsciAsync();

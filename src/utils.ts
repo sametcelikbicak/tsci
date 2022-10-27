@@ -1,30 +1,22 @@
-import { QuestionCollection } from "inquirer";
-import { enum2array } from "enum2array";
+import shell from "shelljs";
+import { Bundler } from "./models/index.js";
 
-export enum Bundler {
-  "Vite" = "Vite",
-  "Parcel" = "Parcel",
-  "Snowpack" = "Snowpack",
-  "Rollup" = "Rollup",
-}
-
-export const questions: QuestionCollection = [
-  {
-    type: "input",
-    name: "projectName",
-    message: "Enter your project name:",
-  },
-  {
-    type: "list",
-    name: "bundler",
-    message: "Choose the TypeScript bundler template:",
-    choices: [...enum2array(Bundler)],
-  },
-];
-
-export const repoLinks = new Map([
+export const bundlers = new Map([
   [Bundler.Vite, "https://github.com/sametcelikbicak/typescript-vite"],
   [Bundler.Parcel, "https://github.com/sametcelikbicak/typescript-parcel"],
   [Bundler.Snowpack, "https://github.com/sametcelikbicak/typescript-snowpack"],
   [Bundler.Rollup, "https://github.com/sametcelikbicak/typescript-rollup"],
 ]);
+
+export function createFolder(name: string) {
+  shell.exec(`mkdir ${name}`);
+}
+
+export function cloneRepository(url: string, name: string) {
+  shell.exec(`git clone ${url} ${name}`);
+}
+
+export function installDependencies(projectPath: string) {
+  shell.cd(`${projectPath}`);
+  shell.exec(`npm install`);
+}
