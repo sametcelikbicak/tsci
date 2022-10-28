@@ -7,6 +7,7 @@
 - Refactor code base, 
 - Add prettier and eslint
 - Update README file
+- Add tests
 
 ## v.2022.10.23
 - Fix dependabot issues

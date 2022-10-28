@@ -23,9 +23,17 @@ Build your changes.
 ``` 
 npm run build
 ```
+Before complete your changes run below commands to be lint and format code base.
+```
+npm run format
+```
 
 ## Testing your changes 🧪
-After your changes and run the build script you can install your changes locally and test the changes. First build your changes.
+After your changes run the test script to test your code.
+```
+npm run test
+```
+Then testing your latest cli in action first run build script and you can install your changes locally and test the changes. First build your changes.
 ```
 npm run build
 ```
