@@ -11,7 +11,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": ["tsconfig.json"],
+    "project": ["./tsconfig.json", "./test/**/*", "./tsconfig.dev.json"],
     "sourceType": "module"
   },
   "ignorePatterns": ["/lib/**/*"],
