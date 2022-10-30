@@ -16,7 +16,7 @@
     "coverage": "vitest run --coverage",
     "lint": "eslint -c .eslintrc.json --ext .ts,.js ./",
     "lint:fix": "eslint -c .eslintrc.json --ext .ts,.js ./ --fix",
-    "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts' '**/*.json'",
+    "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts' '**/*.json' '*.ts' ",
     "format": "npm run prettier && npm run lint",
     "prepare": "npm run build",
     "version": "git add -A src",
@@ -66,7 +66,6 @@
   ],
   "dependencies": {
     "chalk": "^5.1.2",
-    "enum2array": "^2022.10.23",
     "inquirer": "^9.1.4",
     "shelljs": "^0.8.5"
   }
