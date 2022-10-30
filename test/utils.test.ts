@@ -1,6 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import shell from "shelljs";
-import { describe, expect, it, vi } from "vitest";
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  SpyInstance,
+  it,
+  vi,
+} from "vitest";
 import {
   bundlers,
   cloneRepository,
@@ -8,66 +16,84 @@ import {
   installDependencies,
 } from "../src/utils";
 
-describe("bundlers", () => {
-  it("shoudl defined", () => {
-    expect(bundlers).toBeDefined();
-  });
-});
+describe("utils tests", () => {
+  let shellExecSpy: SpyInstance;
+  let shellCdSpy: SpyInstance;
 
-describe("createFolder", () => {
-  it("should defined", () => {
-    expect(createFolder).toBeDefined();
-  });
+  beforeEach(() => {
+    vi.mock("shell", () => {
+      return {
+        exec: vi.fn(),
+        cd: vi.fn(),
+      };
+    });
 
-  it("should create folder", () => {
-    const shellExec = vi.spyOn(shell, "exec");
-    const folderName = "my-project-name";
-    const expectedCommand = `mkdir ${folderName}`;
-
-    createFolder(folderName);
-
-    expect(shellExec).toHaveBeenCalledWith(expectedCommand);
-  });
-});
-
-describe("cloneRepository", () => {
-  it("should defined", () => {
-    expect(cloneRepository).toBeDefined();
+    shellExecSpy = vi.spyOn(shell, "exec").mockReturnThis();
+    shellCdSpy = vi.spyOn(shell, "cd").mockReturnThis();
   });
 
-  it("should clone repository", () => {
-    const shellExec = vi.spyOn(shell, "exec");
-    const url = "repository_url";
-    const projectName = "project-name";
-    const expectedCommand = `git clone ${url} ${projectName}`;
-
-    cloneRepository(url, projectName);
-
-    expect(shellExec).toHaveBeenCalledWith(expectedCommand);
-  });
-});
-
-describe("installDependencies", () => {
-  it("should defined", () => {
-    expect(installDependencies).toBeDefined();
+  afterEach(() => {
+    vi.resetModules();
+    vi.resetAllMocks();
   });
 
-  it("should change directory", () => {
-    const shellCd = vi.spyOn(shell, "cd");
-    const projectPath = "project-name";
-
-    installDependencies(projectPath);
-
-    expect(shellCd).toHaveBeenCalledWith(projectPath);
+  describe("bundlers", () => {
+    it("should defined", () => {
+      expect(bundlers).toBeDefined();
+    });
   });
 
-  it("should install dependencies after change directory", () => {
-    const shellExec = vi.spyOn(shell, "exec");
-    const projectPath = "project-name";
-    const expectedCommand = "npm install";
+  describe("createFolder", () => {
+    it("should defined", () => {
+      expect(createFolder).toBeDefined();
+    });
 
-    installDependencies(projectPath);
+    it("should create folder", () => {
+      const folderName = "my-project-name";
+      const expectedCommand = `mkdir ${folderName}`;
 
-    expect(shellExec).toHaveBeenCalledWith(expectedCommand);
+      createFolder(folderName);
+
+      expect(shellExecSpy).toHaveBeenCalledWith(expectedCommand);
+    });
+  });
+
+  describe("cloneRepository", () => {
+    it("should defined", () => {
+      expect(cloneRepository).toBeDefined();
+    });
+
+    it("should clone repository", () => {
+      const url = "repository_url";
+      const projectName = "project-name";
+      const expectedCommand = `git clone ${url} ${projectName}`;
+
+      cloneRepository(url, projectName);
+
+      expect(shellExecSpy).toHaveBeenCalledWith(expectedCommand);
+    });
+  });
+
+  describe("installDependencies", () => {
+    it("should defined", () => {
+      expect(installDependencies).toBeDefined();
+    });
+
+    it("should change directory", () => {
+      const projectPath = "project-name";
+
+      installDependencies(projectPath);
+
+      expect(shellCdSpy).toHaveBeenCalledWith(projectPath);
+    });
+
+    it("should install dependencies after change directory", () => {
+      const projectPath = "project-name";
+      const expectedCommand = "npm install";
+
+      installDependencies(projectPath);
+
+      expect(shellExecSpy).toHaveBeenCalledWith(expectedCommand);
+    });
   });
 });

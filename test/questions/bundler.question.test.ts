@@ -1,23 +1,43 @@
 import inquirer from "inquirer";
-import { describe, expect, it, vi } from "vitest";
+import {
+  describe,
+  expect,
+  SpyInstance,
+  it,
+  vi,
+  beforeEach,
+  afterEach,
+} from "vitest";
 import { bundlerQuestionAsync } from "../../src/questions/index.js";
 
-vi.mock("inquirer", () => {
-  return {
-    default: {
-      prompt: vi.fn(),
-    },
-  };
-});
+describe("bundler.question tests", () => {
+  let inquirerSpy: SpyInstance;
 
-describe("bundlerQuestionAsync", () => {
-  it("shoudl defined", () => {
-    expect(bundlerQuestionAsync).toBeDefined();
+  beforeEach(() => {
+    vi.mock("inquirer", () => {
+      return {
+        default: {
+          prompt: vi.fn(),
+        },
+      };
+    });
+
+    inquirerSpy = vi.spyOn(inquirer, "prompt").mockReturnThis();
   });
 
-  it("should calls inquirer.prompt once", async () => {
-    await bundlerQuestionAsync();
+  afterEach(() => {
+    vi.resetModules();
+    vi.resetAllMocks();
+  });
+  describe("bundlerQuestionAsync", () => {
+    it("should defined", () => {
+      expect(bundlerQuestionAsync).toBeDefined();
+    });
 
-    expect(inquirer.prompt).toHaveBeenCalledOnce();
+    it("should calls inquirer.prompt once", async () => {
+      await bundlerQuestionAsync();
+
+      expect(inquirerSpy).toHaveBeenCalledOnce();
+    });
   });
 });
