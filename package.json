@@ -12,6 +12,7 @@
     "dev": "tsc",
     "build": "tsc",
     "test": "vitest --run --silent",
+    "test:ci": "vitest --run",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
     "lint": "eslint -c .eslintrc.json --ext .ts,.js ./",
