@@ -14,7 +14,7 @@
     "project": ["./tsconfig.json", "./test/**/*", "./tsconfig.dev.json"],
     "sourceType": "module"
   },
-  "ignorePatterns": ["/lib/**/*"],
+  "ignorePatterns": ["/lib/**/*", "/coverage/**/*"],
   "overrides": [],
   "rules": {}
 }

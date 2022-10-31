@@ -19,7 +19,9 @@
     "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts' '**/*.json' '*.ts' ",
     "format": "npm run prettier && npm run lint",
     "prepare": "npm run build",
-    "version": "git add -A src",
+    "prepublishOnly": "npm run test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
   "repository": {
