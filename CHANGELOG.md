@@ -9,6 +9,7 @@
 - Update README file
 - Add tests
 - Add build and test GitHub action
+- Add coverage and version script
 
 ## v.2022.10.23
 - Fix dependabot issues
