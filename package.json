@@ -1,6 +1,6 @@
 {
   "name": "tsci",
-  "version": "2022.10.23",
+  "version": "2022.11.11",
   "description": "TypeScript CLI for creating HTML & CSS & TypeScript project with different bundlers.",
   "exports": "./lib/cli.js",
   "types": "./lib/cli.d.ts",
