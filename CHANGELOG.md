@@ -1,6 +1,6 @@
 # tsci changes
 
-## new-version
+## v.2022.11.11
 - Add CODE_OF_CONDUCT file
 - Add CONTRIBUTING file
 - Add CHANGELOG file
@@ -10,7 +10,6 @@
 - Add tests
 - Add build and test GitHub action
 - Add coverage and version script
-
 ## v.2022.10.23
 - Fix dependabot issues
 - First GitHub release
