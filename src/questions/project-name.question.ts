@@ -1,10 +1,14 @@
 import inquirer from "inquirer";
+import chalk from "chalk";
 import { Answer } from "../models/index.js";
 
 export const projectNameValidator = (projectName: string): boolean | string => {
-  if (/^[A-Za-z][A-Za-z\-\\_\d]+$/.test(projectName)) return true;
+  if (/^[A-Za-z][A-Za-z\-\\_\d]*$/.test(projectName)) return true;
   else
-    return "Project name may only include letters, numbers, underscores and dashes";
+    return chalk.red(
+      "Project name may only include letters, numbers, underscores and dashes.\n" +
+        "Project name should be start with letters."
+    );
 };
 
 export function projectNameQuestionAsync(): Promise<Answer> {

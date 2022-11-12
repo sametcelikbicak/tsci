@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import inquirer from "inquirer";
 import {
   afterEach,
@@ -7,6 +8,7 @@ import {
   SpyInstance,
   it,
   vi,
+  test,
 } from "vitest";
 import {
   projectNameQuestionAsync,
@@ -57,11 +59,33 @@ describe("project-name.question tests", () => {
     });
 
     it("should return message if project name is invalid", () => {
-      const expectedMessage =
-        "Project name may only include letters, numbers, underscores and dashes";
+      const expectedMessage = chalk.red(
+        "Project name may only include letters, numbers, underscores and dashes.\n" +
+          "Project name should be start with letters."
+      );
       const result = projectNameValidator("invalid project_name");
 
       expect(result).toEqual(expectedMessage);
     });
+
+    test.each([
+      "invalid project_name",
+      "1invalid_project name",
+      " invalid project_name",
+      "_invalid_project_name",
+      "-invalid_project_name",
+      "12345",
+    ])(
+      "should return message if project name is invalid",
+      (invalidProjectName: string) => {
+        const expectedMessage = chalk.red(
+          "Project name may only include letters, numbers, underscores and dashes.\n" +
+            "Project name should be start with letters."
+        );
+        const result = projectNameValidator(invalidProjectName);
+
+        expect(result).toEqual(expectedMessage);
+      }
+    );
   });
 });
