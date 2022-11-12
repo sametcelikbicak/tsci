@@ -1,5 +1,8 @@
 # tsci changes
 
+## New version
+- Add project name validator
+
 ## v.2022.11.11
 - Add CODE_OF_CONDUCT file
 - Add CONTRIBUTING file

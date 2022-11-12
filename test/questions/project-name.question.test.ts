@@ -8,7 +8,10 @@ import {
   it,
   vi,
 } from "vitest";
-import { projectNameQuestionAsync } from "../../src/questions/index.js";
+import {
+  projectNameQuestionAsync,
+  projectNameValidator,
+} from "../../src/questions/index.js";
 
 describe("project-name.question tests", () => {
   let inquirerSpy: SpyInstance;
@@ -39,6 +42,26 @@ describe("project-name.question tests", () => {
       await projectNameQuestionAsync();
 
       expect(inquirerSpy).toHaveBeenCalledOnce();
+    });
+  });
+
+  describe("projectNameValidator", () => {
+    it("should defined", () => {
+      expect(projectNameValidator).toBeDefined();
+    });
+
+    it("should return 'true' if project name is valid", () => {
+      const result = projectNameValidator("valid-project_name");
+
+      expect(result).toBe(true);
+    });
+
+    it("should return message if project name is invalid", () => {
+      const expectedMessage =
+        "Project name may only include letters, numbers, underscores and dashes";
+      const result = projectNameValidator("invalid project_name");
+
+      expect(result).toEqual(expectedMessage);
     });
   });
 });
