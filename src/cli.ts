@@ -1,38 +1,19 @@
-import {
-  bundlers,
-  cloneRepository,
-  createFolder,
-  installDependencies,
-} from "./utils.js";
-import chalk from "chalk";
-import {
-  bundlerQuestionAsync,
-  projectNameQuestionAsync,
-} from "./questions/index.js";
+import { Command } from "commander";
+import { readFileSync } from "node:fs";
+import { tsciAsync } from "./tsci.js";
 
-export async function tsciAsync(): Promise<void> {
-  const projectNameAnswer = await projectNameQuestionAsync();
-  const bundlerAnswer = await bundlerQuestionAsync();
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+const packageJson = readFileSync(
+  new URL("../package.json", import.meta.url)
+).toString();
+const { version } = JSON.parse(packageJson);
+/* eslint-enable @typescript-eslint/no-unsafe-assignment */
 
-  console.log(
-    chalk.blue(`📂 ${projectNameAnswer.projectName} folder is creating...`)
-  );
+const program = new Command();
 
-  createFolder(projectNameAnswer.projectName);
+// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+program.version(version, "-v, --version").action(() => {
+  void tsciAsync().then();
+});
 
-  cloneRepository(
-    bundlers.get(bundlerAnswer.bundler),
-    projectNameAnswer.projectName
-  );
-
-  const path = process.cwd();
-  installDependencies(`${path}/${projectNameAnswer.projectName}`);
-
-  console.log(
-    chalk.green(
-      "💻 Successfully installed all the required dependencies, ready to go."
-    )
-  );
-}
-
-await tsciAsync();
+program.parse(process.argv);
