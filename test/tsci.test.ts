@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import inquirer from "inquirer";
 import {
   describe,
@@ -8,7 +9,7 @@ import {
   beforeEach,
   afterEach,
 } from "vitest";
-import { bundlerQuestionAsync } from "../../src/questions/index.js";
+import { tsciAsync } from "../src/tsci";
 
 describe("bundler.question tests", () => {
   let inquirerSpy: SpyInstance;
@@ -32,13 +33,13 @@ describe("bundler.question tests", () => {
 
   describe("bundlerQuestionAsync", () => {
     it("should defined", () => {
-      expect(bundlerQuestionAsync).toBeDefined();
+      expect(tsciAsync).toBeDefined();
     });
 
     it("should calls inquirer.prompt once", async () => {
-      await bundlerQuestionAsync();
+      await tsciAsync();
 
-      expect(inquirerSpy).toHaveBeenCalledOnce();
+      expect(inquirerSpy).toHaveBeenCalledTimes(2);
     });
   });
 });
