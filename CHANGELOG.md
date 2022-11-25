@@ -3,6 +3,7 @@
 ## New version
 - Add project name validator
 - Add commander
+- Add stars badge
 
 ## v.2022.11.11
 - Add CODE_OF_CONDUCT file
