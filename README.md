@@ -12,6 +12,15 @@ TypeScript CLI for creating HTML & CSS & TypeScript project with different bundl
 ``` shell
 npm i -g tsci
 ```
+## Options
+``` shell
+tsci --help
+Usage: tsci [options]
+
+Options:
+  -v, --version  output the version number
+  -h, --help     display help for command
+```
 
 ## Usage
 ![CLI](assets/cli.gif)
