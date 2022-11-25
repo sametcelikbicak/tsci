@@ -29,6 +29,7 @@ describe("bundler.question tests", () => {
     vi.resetModules();
     vi.resetAllMocks();
   });
+
   describe("bundlerQuestionAsync", () => {
     it("should defined", () => {
       expect(bundlerQuestionAsync).toBeDefined();
