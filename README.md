@@ -5,6 +5,8 @@
 # TSCI CLI
 ![npm](https://img.shields.io/npm/v/tsci?color=g&label=tsci&logo=npm) ![npm](https://img.shields.io/npm/dy/tsci?label=Downloads&logo=npm) [![CodeQL Analyze](https://github.com/sametcelikbicak/tsci/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/sametcelikbicak/tsci/actions/workflows/codeql-analysis.yml) [![Build & Test](https://github.com/sametcelikbicak/tsci/actions/workflows/build-test.yml/badge.svg)](https://github.com/sametcelikbicak/tsci/actions/workflows/build-test.yml) [![Coverage](https://github.com/sametcelikbicak/tsci/actions/workflows/coverage.yml/badge.svg)](https://github.com/sametcelikbicak/tsci/actions/workflows/coverage.yml) ![dependabot](https://img.shields.io/badge/Dependabot-active-g?logo=dependabot)
 
+![GitHub Repo stars](https://img.shields.io/github/stars/sametcelikbicak/tsci?style=social)
+
 TypeScript CLI for creating HTML & CSS & TypeScript project with different bundlers.
 </div>
 
