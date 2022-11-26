@@ -1,19 +1,29 @@
 import { Command } from "commander";
 import { readFileSync } from "node:fs";
 import { tsciAsync } from "./tsci.js";
+import chalk from "chalk";
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+interface PackageJson {
+  name: string;
+  version: string;
+}
+
 const packageJson = readFileSync(
   new URL("../package.json", import.meta.url)
 ).toString();
-const { version } = JSON.parse(packageJson);
-/* eslint-enable @typescript-eslint/no-unsafe-assignment */
+
+const { name, version } = JSON.parse(packageJson) as PackageJson;
 
 const program = new Command();
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-program.version(version, "-v, --version").action(() => {
-  void tsciAsync().then();
-});
+program
+  .name(name)
+  .version(
+    `${chalk.yellow(name)} version: ${chalk.green(version)}`,
+    "-v, --version"
+  )
+  .action(() => {
+    void tsciAsync().then();
+  });
 
 program.parse(process.argv);
