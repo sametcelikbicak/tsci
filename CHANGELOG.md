@@ -1,11 +1,11 @@
 # tsci changes
 
-## New version
+ ## 2022.12.05
 - Add project name validator
 - Add commander
 - Add stars badge
-
-## v.2022.11.11
+- Fix dependabot issues
+## 2022.11.11
 - Add CODE_OF_CONDUCT file
 - Add CONTRIBUTING file
 - Add CHANGELOG file
@@ -15,7 +15,7 @@
 - Add tests
 - Add build and test GitHub action
 - Add coverage and version script
-## v.2022.10.23
+## 2022.10.23
 - Fix dependabot issues
 - First GitHub release
 - Change version number to year.month.day instead of major.minor.patch numbers
