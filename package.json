@@ -69,7 +69,7 @@
   ],
   "dependencies": {
     "chalk": "^5.1.2",
-    "commander": "^9.4.1",
+    "commander": "^10.0.0",
     "inquirer": "^9.1.4",
     "shelljs": "^0.8.5"
   }
