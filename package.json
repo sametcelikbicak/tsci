@@ -49,7 +49,7 @@
     "@types/shelljs": "^0.8.11",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
-    "@vitest/coverage-c8": "^0.32.2",
+    "@vitest/coverage-c8": "^0.33.0",
     "@vitest/ui": "^0.33.0",
     "eslint": "^8.26.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
