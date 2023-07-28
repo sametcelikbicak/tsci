@@ -15,14 +15,14 @@ export async function tsciAsync(): Promise<void> {
   const bundlerAnswer = await bundlerQuestionAsync();
 
   console.log(
-    chalk.blue(`📂 ${projectNameAnswer.projectName} folder is creating...`)
+    chalk.blue(`📂 ${projectNameAnswer.projectName} folder is creating...`),
   );
 
   createFolder(projectNameAnswer.projectName);
 
   cloneRepository(
     bundlers.get(bundlerAnswer.bundler),
-    projectNameAnswer.projectName
+    projectNameAnswer.projectName,
   );
 
   const path = process.cwd();
@@ -30,7 +30,7 @@ export async function tsciAsync(): Promise<void> {
 
   console.log(
     chalk.green(
-      "💻 Successfully installed all the required dependencies, ready to go."
-    )
+      "💻 Successfully installed all the required dependencies, ready to go.",
+    ),
   );
 }
