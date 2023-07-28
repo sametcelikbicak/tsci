@@ -9,7 +9,7 @@ interface PackageJson {
 }
 
 const packageJson = readFileSync(
-  new URL("../package.json", import.meta.url)
+  new URL("../package.json", import.meta.url),
 ).toString();
 
 const { name, version } = JSON.parse(packageJson) as PackageJson;
@@ -20,7 +20,7 @@ program
   .name(name)
   .version(
     `${chalk.yellow(name)} version: ${chalk.green(version)}`,
-    "-v, --version"
+    "-v, --version",
   )
   .action(() => {
     void tsciAsync().then();

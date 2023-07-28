@@ -7,7 +7,7 @@ export const projectNameValidator = (projectName: string): boolean | string => {
   else
     return chalk.red(
       "Project name may only include letters, numbers, underscores and dashes.\n" +
-        "Project name should be start with letters."
+        "Project name should be start with letters.",
     );
 };
 

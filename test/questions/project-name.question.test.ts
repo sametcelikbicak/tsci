@@ -61,7 +61,7 @@ describe("project-name.question tests", () => {
     it("should return message if project name is invalid", () => {
       const expectedMessage = chalk.red(
         "Project name may only include letters, numbers, underscores and dashes.\n" +
-          "Project name should be start with letters."
+          "Project name should be start with letters.",
       );
       const result = projectNameValidator("invalid project_name");
 
@@ -80,12 +80,12 @@ describe("project-name.question tests", () => {
       (invalidProjectName: string) => {
         const expectedMessage = chalk.red(
           "Project name may only include letters, numbers, underscores and dashes.\n" +
-            "Project name should be start with letters."
+            "Project name should be start with letters.",
         );
         const result = projectNameValidator(invalidProjectName);
 
         expect(result).toEqual(expectedMessage);
-      }
+      },
     );
   });
 });
